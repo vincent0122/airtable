@@ -129,7 +129,7 @@ apiRouter.post("/air_pic_input", (req, res) => {
       data.url = pic2[i];
       picList.push(data);
    }; 
-   setTimeout(function(){
+   
    base('dataBase').update(block_Id, {
     
     "Attachments": picList
@@ -139,8 +139,7 @@ apiRouter.post("/air_pic_input", (req, res) => {
       return;
     }
     console.log(record.get('Name'));
-  });
-},500); // 이렇게 크면. req가 실행되니까 끝나버림
+  }); // 이렇게 크면. req가 실행되니까 끝나버림
 
   setTimeout(function(){
     const responseBody = {
@@ -173,7 +172,7 @@ apiRouter.post("/air_pic_input", (req, res) => {
 
   res.status(200).send(responseBody);
 
- },3000); 
+ },500); 
 });
 
 apiRouter.post("/list_record", (req, res) => {
